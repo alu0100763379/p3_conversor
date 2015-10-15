@@ -17,6 +17,12 @@ describe("Temperature_Tests", function() {
         expect(temp.num).to.equal(273.1);
         expect(temp.tipo).to.equal("K");
     });
+    it("2e5C = 360032.0F", function() {
+        var temp = new Temperatura();
+        temp.num(2e5);
+        temp.tipo("C");
+        
+    });
     /*it('32F = 0C', function() {
         original.value = "32F";
         calculate();
