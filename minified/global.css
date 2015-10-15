@@ -1,0 +1,11 @@
+#converted,input,td,th{text-align:right}
+td,th{vertical-align:top;font-size:large}
+#converted,#converted1,#converted2{font-weight:700;font-size:medium}
+#converted1{color:#0174DF}
+#converted2{color:#04B431}
+#converted{color:red}
+body,input{font-size:large}
+input{border:none;border-radius:20px;padding:5px}
+body{font-family:"Lucida Sans Typewriter","Lucida Console",Monaco,"Bitstream Vera Sans Mono",monospace}
+h1{font-weight:400;font-family:"Brush Script MT",cursive;background:#B40404;padding:5px 15px;color:#fff;display:inline-block;border-radius:10px}
+html{background-image:url(imagen7.jpg)}
