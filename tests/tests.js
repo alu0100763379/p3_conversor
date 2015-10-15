@@ -9,8 +9,8 @@ describe("Temperature_Tests", function() {
     });
     it("67F", function() {
         var temp = new Temperatura(67,"F");
-        expect(temp.get_valor()).to.equal(67);
-        expect(temp.get_tipo()).to.equal("F");
+        expect(temp.num).to.equal(67);
+        expect(temp.num).to.equal("F");
     });
     it("273.1K", function() {
         var temp = new Temperatura(273.1,"K");
