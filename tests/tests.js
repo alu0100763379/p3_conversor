@@ -17,9 +17,9 @@ describe("Temperature_Tests", function() {
         expect(temp.num).to.equal(273.1);
         expect(temp.tipo).to.equal("K");
     });
-    it("25C = 360032.0F", function() {
+    it("25C = 77.0F", function() {
         var temp = new Temperatura();
-        temp.num = 2e5;
+        temp.num = 25;
         temp.tipo= "C";
         calculate();
         var result = converted1.innerHTML;
