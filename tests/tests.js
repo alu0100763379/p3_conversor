@@ -23,7 +23,7 @@ describe("Temperature_Tests", function() {
         temp.tipo("C");
         calculate();
         var result = converted1.innerHTML;
-        expect(result).to.equal(360032.0 Farenheit);
+        expect(result).to.equal(360032.0);
     });
     /*it('32F = 0C', function() {
         original.value = "32F";
