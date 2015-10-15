@@ -1,9 +1,21 @@
 "use strict"; // Use ECMAScript 5 strict mode in browsers that support it
+
+function Medida (num, tipo) {
+  this.num = num;
+  this.tipo = tipo;
+}
+
+function Temperatura (num, tipo) {
+  Medida.call(this, num, tipo);
+}
+
+Temperatura.prototype = new.Medida;
+
 function calculate() {
   var result1;
   var result2;
   var temp = original.value; //almacena en el, la variable temp el valor original.
-  var conversor = /(^[-+]?\d+(?:\.\d*)?)(?:[eE]?([-+]?\d+))?\s*([fFcCkK])/; ///([-+]?\d+(?:\.\d*)?)\s*([fFcCkK])/;
+  var conversor = /(^[-+]?\d+(?:\.\d*)?)(?:[eE]?([-+]?\d+))?\s*([fFcCkK])/;
                   
   var m = temp.match(conversor);
   
