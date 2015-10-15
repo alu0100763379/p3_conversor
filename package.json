@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/alu0100763379/Conversor_Temperatura",
   "devDependencies": {
+    "blanket": "^1.1.7",
     "chai": "^3.3.0",
     "del": "^2.0.2",
     "gulp-concat": "^2.6.0",
