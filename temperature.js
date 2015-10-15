@@ -9,20 +9,18 @@ function Temperatura (num, tipo) {
   Medida.call(this, num, tipo);
 }
 
-Temperatura.prototype = new.Medida;
+Temperatura.prototype = new Medida();
 
 function calculate() {
-  var result1;
-  var result2;
+  var result1 = new Temperatura();
+  var result2 = new Temperatura();
   var temp = original.value; //almacena en el, la variable temp el valor original.
   var conversor = /(^[-+]?\d+(?:\.\d*)?)(?:[eE]?([-+]?\d+))?\s*([fFcCkK])/;
-                  
   var m = temp.match(conversor);
-  
   if (m) {
-    var num = m[1]; // lo que cogió el primer parentesis (el nº)
-    var type = m[3]; // lo que cogieron los segundos parentesis si son celcius, farenheit o kelvin
-    num = parseFloat(num);
+    var med = new Temperatura()
+    med.num = m[1];
+    med.tipo = m[3];
     if (m[2] !== undefined){
       var exp = m[2];
       exp = parseInt(exp); // Convierte una string en entero
@@ -36,7 +34,7 @@ function calculate() {
           cnt++; 
         }
 
-        if(divide !== 0) num = num/divide;
+        if(divide !== 0) med.num = med.num/divide;
 
       } 
       else {
@@ -46,29 +44,30 @@ function calculate() {
           divide = divide * 10;
           cnt++; 
         }
-        if(divide !== 0) num = num*divide; 
+        if(divide !== 0) med.num = med.num*divide; 
       }
     }
-    if (type == 'c' || type == 'C') {
-      result1 = (num * 9/5)+32;
-      result1 = result1.toFixed(1)+" Farenheit"
-      result2 = num + 273.15;
-      result2 = result2.toFixed(1)+" Kelvin"
+    if (med.tipo == 'c' || med.tipo == 'C') {
+      result1.num = (med.num * 9/5)+32;
+      result1.num = result1.num.toFixed(1)+" Farenheit";
+      result2.num = (med.num*1)+273.15;
+      result2.num = result2.num.toFixed(1)+" Kelvin";
+      
     }
-    else if (type == 'f' || type == 'F'){
-      result1 = (num - 32)*5/9;
-      result1 = result1.toFixed(1)+" Celsius"
-      result2 = ((num - 32)*5/9) + 273.15;
-      result2 = result2.toFixed(1)+" Kelvin"
+    else if (med.tipo == 'f' || med.tipo == 'F'){
+      result1.num = (med.num - 32)*5/9;
+      result1.num = result1.num.toFixed(1)+" Celsius";
+      result2.num = ((med.num - 32)*5/9) + 273.15;
+      result2.num = result2.num.toFixed(1)+" Kelvin";
     }
     else{
-      result1 = num - 273.15;
-      result1 = result1.toFixed(1)+" Celsius"
-      result2 = (num * 9/5) - 459.67;
-      result2 = result2.toFixed(1)+" Farenheit"
+      result1.num = med.num - 273.15;
+      result1.num = result1.num.toFixed(1)+" Celsius";
+      result2.num = (med.num * 9/5) - 459.67;
+      result2.num = result2.num.toFixed(1)+" Farenheit";
     }
-    converted1.innerHTML = result1;
-    converted2.innerHTML = result2;
+    converted1.innerHTML = result1.num;
+    converted2.innerHTML = result2.num;
     converted.innerHTML = "";
   }
   else {
