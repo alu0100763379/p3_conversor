@@ -2,9 +2,9 @@ alavar expect = chai.expect;
 
 describe("Temperature_Tests", function() {
 
-    it("18C", function() {
-        var temp = new Temperatura(18,"C");
-        expect(temp.get_num()).to.equal(18);
+    it("19C", function() {
+        var temp = new Temperatura(19,"C");
+        expect(temp.get_num()).to.equal(19);
         expect(temp.get_tipo()).to.equal("C");
     });
     it("67F", function() {
