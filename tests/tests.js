@@ -17,5 +17,30 @@ describe("Temperature_Tests", function() {
         expect(temp.get_num()).to.equal(273.1);
         expect(temp.get_tipo()).to.equal("K");
     });
-
+    it('5x = error', function() {
+        original.value = "5x";
+        calculate();
+        expect(converted.innerHTML).to.equal('ERROR! Intenta poner algo como: \'-4.2C\'', /ERROR/);
+    });
+    it("32F = 0C", function() {
+      var temp = new Temperatura();
+      temp.set_num(32);
+      temp.set_tipo("F");
+      var resultado = temp.convert_farenheit_to_celsius();
+      expect(resultado).to.equal(0);
+    });
+    it("0C = 273.15K", function() {
+      var temp = new Temperatura();
+      temp.set_num(0);
+      temp.set_tipo("C");
+      var resultado = temp.convert_celsius_to_kelvin();
+      expect(resultado).to.equal(273.15);
+    });
+    it("273.15K = 32F", function() {
+      var temp = new Temperatura();
+      temp.set_num(273.15);
+      temp.set_tipo("K");
+      var resultado = temp.convert_kelvin_to_farenheit();
+      expect(resultado).to.equal(32);
+    });
 });
