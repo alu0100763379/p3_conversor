@@ -64,26 +64,30 @@ function calculate(){
 
         cnv_tmp.set_num(parseFloat(m[1]));
         cnv_tmp.set_tipo(m[2]);
-
-        if (cnv_tmp.get_tipo() == 'c' || cnv_tmp.get_tipo() == 'C') {
-          result1.set_num(cnv_tmp.convert_celsius_to_farenheit());
-          result1.set_tipo("Fahrenheit");
-          result2.set_num(cnv_tmp.convert_celsius_to_kelvin());
-          result2.set_tipo("Kelvin");
-        }
-        if (cnv_tmp.get_tipo() == 'f' || cnv_tmp.get_tipo() == 'F') {
-          result1.set_num(cnv_tmp.convert_farenheit_to_celsius());
-          result1.set_tipo("Celsius");
-          result2.set_num(cnv_tmp.convert_farenheit_to_kelvin());
-          result2.set_tipo("Kelvin");
-        }
-        if (cnv_tmp.get_tipo() == 'k' || cnv_tmp.get_tipo() == 'K') {
-          result1.set_num(cnv_tmp.convert_kelvin_to_celsius());
-          result1.set_tipo("Celsius");
-          result2.set_num(cnv_tmp.convert_kelvin_to_farenheit());
-          result2.set_tipo("Fahrenheit");
-        }
-        
+        var prueba = cnv_tmp.get_tipo();
+        switch(cnv_tmp.get_tipo()){
+          case "c":
+          case "C":
+            result1.set_num(cnv_tmp.convert_celsius_to_farenheit());
+            result1.set_tipo("Fahrenheit");
+            result2.set_num(cnv_tmp.convert_celsius_to_kelvin());
+            result2.set_tipo("Kelvin");
+            break;
+          case "f":
+          case "F":
+            result1.set_num(cnv_tmp.convert_farenheit_to_celsius());
+            result1.set_tipo("Celsius");
+            result2.set_num(cnv_tmp.convert_farenheit_to_kelvin());
+            result2.set_tipo("Kelvin");
+            break;
+          case "k":
+          case "K":
+            result1.set_num(cnv_tmp.convert_kelvin_to_celsius());
+            result1.set_tipo("Celsius");
+            result2.set_num(cnv_tmp.convert_kelvin_to_farenheit());
+            result2.set_tipo("Fahrenheit");
+            break;
+        }     
         result1 = result1.get_num() + " " + result1.get_tipo();
         result2 = result2.get_num() + " " + result2.get_tipo();
         converted.innerHTML = result1 + " || " + result2;
