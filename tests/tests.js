@@ -1,4 +1,4 @@
-alavar expect = chai.expect;
+var expect = chai.expect;
 
 describe("Temperature_Tests", function() {
 
