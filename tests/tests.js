@@ -45,7 +45,7 @@ describe("Temperature_Tests", function() {
       var resultado = temp.convert_celsius_to_farenheit();
       expect(resultado).to.equal(32);
     });
-    it("32F = 273.15KC", function() {
+    it("32F = 273.15K", function() {
       var temp = new Temperatura();
       temp.set_num(32);
       temp.set_tipo("F");
@@ -58,5 +58,12 @@ describe("Temperature_Tests", function() {
       temp.set_tipo("K");
       var resultado = temp.convert_kelvin_to_celsius();
       expect(resultado).to.equal(0);
+    });
+    it("5X = ERROR", function() {
+        window.onload = function() {
+         var temp = new Temperatura(5,"X");
+         calculate();
+         expect(fin.innerHTML).to.match("/ERROR/");
+        }
     });
 });
