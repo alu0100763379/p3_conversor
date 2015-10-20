@@ -1,0 +1,54 @@
+"use strict";
+function Medida(num, tipo){
+  this.num_=num;
+  this.tipo_=tipo;
+}
+
+ function Temperatura (num, tipo){
+   Medida.call(this, num, tipo);
+ }
+
+ Temperatura.prototype = new Medida();
+
+ Medida.prototype.get_num = function(){ return this.num_; }
+
+ Medida.prototype.get_tipo = function(){ return this.tipo_; }
+
+ Medida.prototype.set_num = function(num){ this.num_=num; }
+
+ Medida.prototype.set_tipo = function(tipo){ this.tipo_=tipo; }
+
+ Temperatura.prototype.pasar_a_f = function(){ return (this.get_num()*9/5)+32; }
+
+ Temperatura.prototype.pasar_a_c = function(){ return (this.get_num()-32)*5/9; }
+
+ function calculate(){
+     var result=new Temperatura();
+     var temp=original.value;
+
+     if(temp){
+       var regexp = /([-+]?\d+(?:\.\d*)?(?:[eE][+-]?\d+)?)\s*([fFcC])/;
+       var num = temp.match(regexp);
+
+       if(num){
+         var temp_=new Temperatura();
+
+         temp_.set_num(parseFloat(num[1]));
+         temp_.set_tipo(num[2]);
+
+         if (temp_.get_tipo() == 'c' || temp_.get_tipo() == 'C') {
+           result.set_num(temp_.pasar_a_f());
+           result.set_tipo("Fahrenheit");
+         }
+	 else {
+           result.set_num(temp_.pasar_a_c());
+           result.set_tipo("Celsius");
+         }
+         result = result.get_num() + " " + result.get_tipo();
+         converted.innerHTML = result;
+       }
+       else {
+         converted.innerHTML = "ERROR! Intenta poner algo como: '-4.2C'";
+       }
+     }
+   }
